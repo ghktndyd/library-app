@@ -4,7 +4,6 @@ import com.group.libraryapp.dto.assignment.request.DayOfTheWeekRequest;
 import com.group.libraryapp.dto.assignment.request.SumRequest;
 import com.group.libraryapp.dto.assignment.response.DayOfTheWeekResponse;
 import com.group.libraryapp.dto.calculator.request.CalculatorAddRequest;
-import com.group.libraryapp.dto.calculator.request.CalculatorRequest;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
