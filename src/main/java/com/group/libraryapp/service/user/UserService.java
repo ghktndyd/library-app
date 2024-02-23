@@ -15,6 +15,14 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    public void saveUser(UserCreateRequest request) {
+        userRepository.saveUser(request.getName(), request.getAge());
+    }
+
+    public List<UserResponse> getUsers() {
+        return userRepository.getUsers();
+    }
+
     public void updateUser(UserUpdateRequest request) {
 
         boolean isUserNotExist = userRepository.isUserNotExist(request.getId());
@@ -32,14 +40,6 @@ public class UserService {
         }
 
         userRepository.deleteUser(name);
-    }
-
-    public void saveUser(UserCreateRequest request) {
-        userRepository.saveUser(request.getName(), request.getAge());
-    }
-
-    public List<UserResponse> getUsers() {
-        return userRepository.getUsers();
     }
 
 }
