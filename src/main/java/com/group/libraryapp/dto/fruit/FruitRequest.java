@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class FruitRequest {
     private String name;
     private LocalDate warehousingDate;
-    private Long price;
+    private int price;
     private int quantity;
     private int enterQuantity;
 }

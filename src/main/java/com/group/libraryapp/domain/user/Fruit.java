@@ -16,4 +16,12 @@ public class Fruit {
     private int price;
     private int enterQuantity;
     private int quantity;
+
+    public Fruit(String name, LocalDate warehousingDate, int price, int enterQuantity, int quantity) {
+        this.name = name;
+        this.warehousingDate = warehousingDate;
+        this.price = price;
+        this.enterQuantity = enterQuantity;
+        this.quantity = quantity;
+    }
 }
