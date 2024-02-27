@@ -2,11 +2,13 @@ package com.group.libraryapp.repository.fruit.impl;
 
 import com.group.libraryapp.domain.user.Fruit;
 import com.group.libraryapp.repository.fruit.FruitRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Primary
 @Repository
 public class FruitRepositoryImpl implements FruitRepository {
 

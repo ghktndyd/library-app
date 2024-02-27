@@ -5,7 +5,6 @@ import com.group.libraryapp.dto.fruit.FruitRequest;
 import com.group.libraryapp.dto.fruit.FruitSaleRequest;
 import com.group.libraryapp.dto.fruit.FruitStatResponse;
 import com.group.libraryapp.repository.fruit.FruitRepository;
-import com.group.libraryapp.repository.fruit.impl.FruitRepositoryImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,9 +13,9 @@ import java.util.NoSuchElementException;
 @Service
 public class FruitService {
 
-    private final FruitRepositoryImpl fruitRepository;
+    private final FruitRepository fruitRepository;
 
-    public FruitService(FruitRepositoryImpl fruitRepository) {
+    public FruitService(FruitRepository fruitRepository) {
         this.fruitRepository = fruitRepository;
     }
 
