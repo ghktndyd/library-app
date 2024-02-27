@@ -1,27 +1,35 @@
 package com.group.libraryapp.domain.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.*;
+
 
 import java.time.LocalDate;
 
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Fruit {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private LocalDate warehousingDate;
     private int price;
-    private int enterQuantity;
     private int quantity;
+    private int enterQuantity;
 
-    public Fruit(String name, LocalDate warehousingDate, int price, int enterQuantity, int quantity) {
+    public Fruit(String name, LocalDate warehousingDate, int price, int quantity, int enterQuantity) {
         this.name = name;
         this.warehousingDate = warehousingDate;
         this.price = price;
-        this.enterQuantity = enterQuantity;
         this.quantity = quantity;
+        this.enterQuantity = enterQuantity;
     }
 }
