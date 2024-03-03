@@ -9,7 +9,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Repository
-public class UserRepository {
+public class UserJdbcRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
