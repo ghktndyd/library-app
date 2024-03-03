@@ -5,7 +5,6 @@ import com.group.libraryapp.dto.user.request.UserUpdateRequest;
 import com.group.libraryapp.dto.user.response.UserResponse;
 import com.group.libraryapp.service.user.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-    private final JdbcTemplate jdbcTemplate;
 
     @PostMapping("/user")
     public void saveUser(@RequestBody UserCreateRequest request) {
