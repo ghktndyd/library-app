@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BookController {
 
-  private final BookService bookService;
+    private final BookService bookService;
 
-  public BookController(BookService bookService) {
-    this.bookService = bookService;
-  }
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
-  @PostMapping("/book")
-  public void saveBook(@RequestBody BookCreateRequest request) {
-    bookService.saveBook(request);
-  }
+    @PostMapping("/book")
+    public void saveBook(@RequestBody BookCreateRequest request) {
+        bookService.saveBook(request);
+    }
 
-  @PostMapping("/book/loan")
-  public void loanBook(@RequestBody BookLoanRequest request) {
-    bookService.loanBook(request);
-  }
+    @PostMapping("/book/loan")
+    public void loanBook(@RequestBody BookLoanRequest request) {
+        bookService.loanBook(request);
+    }
 
-  @PutMapping("/book/return")
-  public void returnBook(@RequestBody BookReturnRequest request) {
-    bookService.returnBook(request);
-  }
+    @PutMapping("/book/return")
+    public void returnBook(@RequestBody BookReturnRequest request) {
+        bookService.returnBook(request);
+    }
 
 }
