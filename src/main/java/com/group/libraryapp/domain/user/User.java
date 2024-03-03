@@ -1,12 +1,24 @@
 package com.group.libraryapp.domain.user;
 
+import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@RequiredArgsConstructor
+@Entity
 public class User {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private Long id;
+
+    @Column(nullable = false, length = 20, name = "name")
     private String name;
+
     private Integer age;
 
     public User(String name, Integer age) {
