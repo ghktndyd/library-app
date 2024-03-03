@@ -1,13 +1,10 @@
 package com.group.libraryapp.domain.user;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @RequiredArgsConstructor
 @Entity
 public class User {
