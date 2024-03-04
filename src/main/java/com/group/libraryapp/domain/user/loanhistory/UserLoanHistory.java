@@ -1,8 +1,8 @@
 package com.group.libraryapp.domain.user.loanhistory;
 
 import com.group.libraryapp.domain.user.User;
-
 import jakarta.persistence.*;
+import lombok.Getter;
 
 @Entity
 public class UserLoanHistory {
@@ -15,6 +15,7 @@ public class UserLoanHistory {
   @ManyToOne
   private User user;
 
+  @Getter
   private String bookName;
 
   private boolean isReturn;
@@ -33,7 +34,4 @@ public class UserLoanHistory {
     this.isReturn = true;
   }
 
-  public String getBookName() {
-    return this.bookName;
-  }
 }

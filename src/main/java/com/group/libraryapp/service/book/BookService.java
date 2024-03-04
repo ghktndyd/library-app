@@ -16,39 +16,35 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class BookService {
 
-  private final BookRepository bookRepository;
-  private final UserLoanHistoryRepository userLoanHistoryRepository;
-  private final UserRepository userRepository;
+    private final BookRepository bookRepository;
+    private final UserRepository userRepository;
+    private final UserLoanHistoryRepository userLoanHistoryRepository;
 
-  @Transactional
-  public void saveBook(BookCreateRequest request) {
-    bookRepository.save(new Book(request.getName()));
-  }
-
-  @Transactional
-  public void loanBook(BookLoanRequest request) {
-    // 1. 책 정보를 가져온다.
-    Book book = bookRepository.findByName(request.getBookName())
-        .orElseThrow(IllegalArgumentException::new);
-
-    // 2. 대출기록 정보를 확인해서 대출중인지 확인합니다.
-    // 3. 만약에 확인했는데 대출 중이라면 예외를 발생시킵니다.
-    if (userLoanHistoryRepository.existsByBookNameAndIsReturn(book.getName(), false)) {
-      throw new IllegalArgumentException("진작 대출되어 있는 책입니다");
+    @Transactional
+    public void saveBook(BookCreateRequest request) {
+        bookRepository.save(new Book(request.getName()));
     }
 
-    // 4. 유저 정보를 가져온다.
-    User user = userRepository.findByName(request.getUserName())
-        .orElseThrow(IllegalArgumentException::new);
-    user.loanBook(book.getName());
-  }
+    @Transactional
+    public void loanBook(BookLoanRequest request) {
+        Book book = bookRepository.findByName(request.getBookName())
+                .orElseThrow(IllegalArgumentException::new);
 
-  @Transactional
-  public void returnBook(BookReturnRequest request) {
-    User user = userRepository.findByName(request.getUserName())
-        .orElseThrow(IllegalArgumentException::new);
-    System.out.println("Hello");
-    user.returnBook(request.getBookName());
-  }
+        if (userLoanHistoryRepository.existsByBookNameAndIsReturn(book.getName(), false)) {
+            throw new IllegalArgumentException("이미 대출되어 있는 책입니다");
+        }
 
+        User user = userRepository.findByName(request.getUserName())
+                .orElseThrow(IllegalArgumentException::new);
+
+        user.loanBook(book.getName());
+    }
+
+    @Transactional
+    public void returnBook(BookReturnRequest request) {
+        User user = userRepository.findByName(request.getUserName())
+                .orElseThrow(IllegalArgumentException::new);
+
+        user.returnBook(request.getBookName());
+    }
 }
