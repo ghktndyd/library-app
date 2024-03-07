@@ -11,4 +11,4 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: "jdbc:mysql://localhost/library"
     username: "root"
-    password: "1234"
+    password: "Abcd1234!"
